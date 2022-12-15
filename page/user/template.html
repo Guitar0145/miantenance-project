@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบซ่อม IT Service</title>
+  <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/bootstrap-grid.css" rel="stylesheet" type="text/css">
+  <link href="../../css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <!-- เริ่ม top menu-->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ระบบซ่อม IT Service</a>
+      <button type="button" class="badge rounded-pill text-bg-light position-relative">
+        แจ้งเตือน
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          99+
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">ระบบซ่อม IT Service</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="ค้นหา..." aria-label="Search">
+            <button class="btn btn-success" type="submit">ค้นหา</button>
+          </form>
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">หน้าหลัก</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">รายการแจ้งซ่อม</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                แจ้งซ่อม
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">รายการแจ้งซ่อม</a></li>
+                <li><a class="dropdown-item" href="#">สถานที่แจ้งซ่อม</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">รายงานการซ่อม</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                อุปกรณ์
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">รายการอุปกรณ์</a></li>
+                <li><a class="dropdown-item" href="#">เบิกอุปกรณ์</a></li>
+                <li><a class="dropdown-item" href="#">ประวัติการเบิก</a></li>
+                <li><a class="dropdown-item" href="#">อุปกรณ์ที่ใกล้หมด</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">รายงานการเบิก</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                การบำรุงรักษา
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">ทำความสะอาดคอมพิวเตอร์</a></li>
+                <li><a class="dropdown-item" href="#">เปลี่ยนแบตเตอร์รี่ UPS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+<!--สิ้นสุด top menu-->
+<div class="container-fluid p-5 my-5 "> <!--start container-->
+<div class="card">
+  
+  <div class="card-body">
+    <!--Start Modal แจ้งซ่อม-->
+	  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">แจ้งซ่อม</button>
+		</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">แจ้งซ่อม</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+			  <div class="mb-3">
+            <input type="text" class="form-control" placeholder="ผู้แจ้งซ่อม(ผู้แจ้งซ่อม)" id="name">
+          </div>
+            <div class="mb-3">
+            <select class="form-select"  name="select2" id="select2">
+			  <option selected>แผนก...</option>
+              <option value="ประกอบ">ประกอบ</option>
+              <option value="สุโขทัย">สุโขทัย</option>
+              <option value="Stock">Stock</option>
+            </select>
+          </div>
+          </div>
+          
+          <div class="mb-3">
+            <select class="form-select"  name="select" id="select">
+			  <option selected>ประเภทงานซ่อม...</option>
+              <option value="อินเตอร์เน็ต">อินเตอร์เน็ต</option>
+              <option value="คอมมีปัญหา">คอมมีปัญหา</option>
+              <option value="โปรแกรม">โปรแกรม</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="อาการ" id="behaviors">
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" placeholder="หมายเหตุ..." id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">ส่งข้อมูล</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Modal แจ้งซ่อม-->
+<div class="my-3"> <!--รายการแจ้งซ่อม--> 
+<div class="card">
+  <div class="card-header">
+    รายการแจ้งซ่อมทั้งหมด
+  </div>
+  <div class="card-body">
+    <br><br><br>
+  </div>
+</div> 
+</div><!--จบรายการแจ้งซ่อม-->
+<br>
+<div class="row"> <!--Start row--> 
+<!--Start No.1--> 
+<div class="col-md-6">
+<div class="card">
+  <div class="card-header">
+    คิวแจ้งซ่อมฮาร์ดแวร์
+  </div>
+  <div class="card-body">
+    <br><br><br>
+  </div>
+</div>
+</div>
+<!--End No.1--> 
+<!--Start No.2--> 
+<div class="col-md-6">
+<div class="card">
+  <div class="card-header">
+    คิวแจ้งซ่อมซอฟต์แวร์
+  </div>
+  <div class="card-body">
+    <br><br><br>
+  </div>
+</div>
+</div>
+<!--End No.2--> 
+<hr class="text-white">
+<!--Start No.3--> 
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      คิวแจ้งอาการเบื้องต้น
+    </div>
+    <div class="card-body">
+      <br><br><br>
+    </div>
+  </div>
+  </div>
+  <!--End No.3--> 
+  <!--Start No.4--> 
+  <div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      คิวรายการส่งซ่อมศูนย์
+    </div>
+    <div class="card-body">
+      <br><br><br>
+    </div>
+  </div>
+  </div>
+  <!--End No.4--> 
+</div> <!--end row--> 
+  </div>
+</div>
+</div> <!--End container--> 
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <h4>Create By : IT Team </h4>
+</div>
+</body>
+
+</html>
