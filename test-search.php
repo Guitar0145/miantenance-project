@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h5>ค้นหารายการแจ้งซ่อมที่ต้องการ</h5>
+                        <h5>ค้นหารายการแจ้งซ่อมที่ต้องการนะจ้ะ</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
