@@ -6,8 +6,10 @@
 		$m_c_id = $_POST['m_c_id'];
 		$m_rate = $_POST['m_rate'];
 		$times_limit = $_POST['times_limit'];
+		$m_status = $_POST['m_status'];
+
 		
-			mysqli_query($con, "UPDATE `maintenance` set `m_issue` = '$m_issue', `m_c_id` = '$m_c_id', `m_rate` = '$m_rate', `times_limit` = '$times_limit' WHERE `m_id` = '$m_id'") or die(mysqli_error());
+			mysqli_query($con, "UPDATE `maintenance` set `m_issue` = '$m_issue', `m_c_id` = '$m_c_id', `m_rate` = '$m_rate', `times_limit` = '$times_limit', `m_status` = '$m_status' WHERE `m_id` = '$m_id'") or die(mysqli_error());
 			echo "<script>alert('แก้ไขอาการ สำเร็จ !')</script>";
 			header("location: index.php");
 			}		

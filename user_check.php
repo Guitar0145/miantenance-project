@@ -10,8 +10,10 @@
         $date_check = $_POST['date_check'];
         $user_comment = $_POST['user_comment'];
         $name_check = $_POST['name_check'];
+        $m_status = $_POST['m_status'];
 
-        $sql =  $updatedata->updateUsercheck($user_check, $date_check, $user_comment, $name_check, $m_id);
+
+        $sql =  $updatedata->updateUsercheck($user_check, $date_check, $user_comment, $name_check, $m_status, $m_id);
         if ($sql) {
           echo "<script>alert('อัพเดทข้อมูล สำเร็จ !!');</script>";
           echo "<script>window.close();</script>";
@@ -61,6 +63,9 @@
           </div>
           <div class="mb-3">
             <input type="hidden" class="form-control" value="YES" name="user_check" id="user_check" required>
+          </div>
+          <div class="mb-3">
+            <input type="hidden" class="form-control" value="ตรวจรับงานแล้ว" name="m_status" id="m_status" required>
           </div> 
           <div class="mb-3">
           <div class="input-group mb-3">

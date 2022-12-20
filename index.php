@@ -57,7 +57,7 @@
 <?php
         date_default_timezone_set("Asia/Bangkok");
         include('connect_sqli.php'); 
-        $query = "SELECT * FROM categories ORDER BY c_id " or die("Error:" . mysqli_error());
+        $query = "SELECT * FROM categories WHERE  c_name != 'รอดำเนินการ' ORDER BY c_id " or die("Error:" . mysqli_error());
         $cate = mysqli_query($con, $query);
 
         $query3 = "SELECT * FROM subtasks ORDER BY st_id " or die("Error:" . mysqli_error());
@@ -143,7 +143,7 @@ try {
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" class="btn btn-warning shadow my-1 mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fas fa-cogs"></i>&nbsp;แจ้งซ่อมทั่วไป</button>
-                <a class="btn btn-info shadow my-1 mx-1" href="machine/repair-machine.php"><i class="fas fa-cogs"></i>&nbsp;แจ้งซ่อมเครื่องจักร</a>
+                <!--<a class="btn btn-info shadow my-1 mx-1" href="machine/repair-machine.php"><i class="fas fa-cogs"></i>&nbsp;แจ้งซ่อมเครื่องจักร</a>-->
                 <?php if($_SESSION['level'] == 'Admin' ) {?>
                 <button type="button" class="btn btn-info shadow my-1 mx-1" data-bs-toggle="modal" data-bs-target="#Status_Tech" data-bs-whatever="@mdo"><i class="fas fa-cogs"></i>&nbsp;สถานะช่าง</button>
                 <?php } ?>
@@ -403,7 +403,7 @@ try {
                                             <td><?php echo $listelect['c_name'] ?></td>
                                             <td><?php echo $listelect['st_name'] ?></td>
                                             <td><?php echo $listelect['m_issue'] ?></td>
-                                            <td class="text-center"><a class="example-image-link" href="<?php echo $listall['photo'] ?>" data-lightbox="example-set" data-title="<?php echo $listall['m_issue'] ?>">คลิกเพื่อดูรูป</a></td>
+                                            <td class="text-center"><a class="example-image-link" href="<?php echo $listelect['photo'] ?>" data-lightbox="example-set" data-title="<?php echo $listelect['m_issue'] ?>"><i class="far fa-file-image" style="font-size:26px;color:black;"></i></a></td>
                                             <td>
                                                 <?php
                                                     $urgency = $listelect['m_urgency'];
@@ -500,6 +500,14 @@ try {
                                                                     <span class="input-group-text">ชม.</span>
                                                                 </div>
                                                                 <?php } ?>
+
+                                                                <div class="input-group mt-2">
+                                                                    <span class="input-group-text" name="m_status" >สถานะงาน</span>
+                                                                    <select class="form-select" name="m_status">
+                                                                        <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                                                        <option value="ซ่อมเสร็จรอตรวจรับ">ซ่อมเสร็จรอตรวจรับ</option>
+                                                                    </select>
+                                                                </div>
 
                                                             </div>
                                                         </div>
@@ -651,11 +659,6 @@ try {
                                                             </li>
                                                         <?php } ?>
 
-                                                        <?php if($_SESSION['level'] == 'User' ) {?>
-                                                            <?php if($listelect['user_check'] == 'NO') {?>
-                                                                <li><a class="dropdown-item" href="#" onclick="window.open(this.href='user_check.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=400,width=600,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ยืนยันตรวจสอบ</a></li>
-                                                            <?php } ?>
-                                                        <?php } ?>
                                                     </ul>
                                                 </div>
                                                 <!--------------- Button Group Pannel---------------->
@@ -721,6 +724,14 @@ try {
                                                                 <span class="input-group-text">ชม.</span>
                                                             </div>
                                                             <?php } ?>
+
+                                                            <div class="input-group mt-2">
+                                                                <span class="input-group-text" name="m_status" >สถานะงาน</span>
+                                                                <select class="form-select" name="m_status">
+                                                                    <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                                                    <option value="ซ่อมเสร็จรอตรวจรับ">ซ่อมเสร็จรอตรวจรับ</option>
+                                                                </select>
+                                                            </div>
                                                             
                                                         <?php } ?>
                                                         </div>
@@ -851,12 +862,7 @@ try {
                                                         <?php if($_SESSION['level'] == 'Admin' ) {?>
                                                         <li><a class="dropdown-item" href="#" name="editIssue2" id="editIssue2" data-bs-toggle="modal" data-bs-target="#editIssue4<?php echo $listelect['m_id']?>">แก้ไขอาการ</a></li>
                                                         <?php } ?>
-                                                        <li><hr class="dropdown-divider"></li>
-                                                        <?php if($_SESSION['level'] == 'Admin' ) {?>
-                                                            <?php if($listelect['user_check'] == 'NO') {?>
-                                                                <li><a class="dropdown-item" href="#" onclick="window.open(this.href='user_check.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=400,width=600,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ยืนยันตรวจสอบ</a></li>
-                                                            <?php } ?>
-                                                        <?php } ?>
+                                                        
                                                     </ul>
                                                 </div>
                                                 <!--------------- Button Group Pannel---------------->
@@ -920,6 +926,14 @@ try {
                                                                 </div>
                                                                 <?php } ?>
 
+                                                                <div class="input-group mt-2">
+                                                                    <span class="input-group-text" name="m_status" >สถานะงาน</span>
+                                                                    <select class="form-select" name="m_status">
+                                                                        <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                                                        <option value="ซ่อมเสร็จรอตรวจรับ">ซ่อมเสร็จรอตรวจรับ</option>
+                                                                    </select>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                         <br style="clear:both;"/>
@@ -938,7 +952,124 @@ try {
                             </div>               
                         </div>
                     </div>   
-<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                        
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
+                        <div class="card-header  text-white" style="background-color:#00BCC8;">
+                            คิวรายที่ซ่อมแล้ว รอตรวจรับงาน
+                        </div>
+                        <div class="card-body shadow mb-2 bg-white">
+                        <div class="table-responsive-md">
+                                <table class="table table-hover table-bordered" style="font-size:14px;">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th class="col-auto">#</th>
+                                            <th colspan="2" class="col-auto">ผู้แจ้ง/แผนก</th>
+                                            <th class="col-4">ปัญหา</th>
+                                            <th class="col-auto">ความเร่งด่วน</th>
+                                            <th class="col-auto">สถานะงาน</th>
+                                            <th class="col-auto">ความยาก</th>
+                                            <th class="col-1">จัดการ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        $listelectric = $connect->query("SELECT *
+                                        FROM maintenance
+                                        INNER JOIN depart ON maintenance.m_depart_id = depart.depart_id 
+                                        INNER JOIN categories ON maintenance.m_c_id = categories.c_id
+                                        RIGHT JOIN subtasks ON maintenance.m_st_id = subtasks.st_id
+                                        WHERE (check_status = 'ตรวจสอบแล้ว' AND user_check = 'NO') AND (m_status ='ซ่อมเสร็จรอตรวจรับ' OR m_status = 'รอสินค้า-อะไหล่')
+                                        ");
+                                        $listelectric->execute();
+                                        $electric = $listelectric->fetchAll();
+                                        foreach ($electric as $listelect){
+                                        $m_id_count = $listelect['m_id'];
+                                        ?>
+                                    
+                                        <?php
+                                            $sql="SELECT * FROM tasker WHERE m_id =  $m_id_count and task_status = 'ทำงานเสร็จสิ้น'";
+                                            if ($result=mysqli_query($con,$sql))
+                                            {
+                                                $countEnd=mysqli_num_rows($result);
+                                                mysqli_free_result($result);
+                                            }
+
+                                            $sql2 = "SELECT * FROM tasker WHERE m_id = $m_id_count ";
+                                            if ($result2=mysqli_query($con,$sql2))
+                                            {
+                                                $countPer=mysqli_num_rows($result2);
+                                                mysqli_free_result($result2);
+                                            }
+                                            $sql3 = "SELECT * FROM purchase WHERE m_id = $m_id_count ";
+                                                if ($result3=mysqli_query($con,$sql3))
+                                                {
+                                                    $countOrders=mysqli_num_rows($result3);
+                                                    mysqli_free_result($result3);
+                                                }
+
+                                                $sql4 = "SELECT * FROM purchase WHERE m_id = $m_id_count AND pr_status = 'กำลังรอสินค้า' ";
+                                                if ($result4=mysqli_query($con,$sql4))
+                                                {
+                                                    $TaskerStatus=mysqli_num_rows($result4);
+                                                    mysqli_free_result($result4);
+                                                }
+                                                $sql5 = "SELECT * FROM working WHERE m_id = $m_id_count AND status_work = 'กำลังทำงาน' ";
+                                                if ($result5=mysqli_query($con,$sql5))
+                                                {
+                                                $countWorking=mysqli_num_rows($result5);
+                                                mysqli_free_result($result5);
+                                                }
+                                        ?>
+
+                                        
+                                        <tr>
+                                            <th class="text-center"><?php echo $m_id_count ?></th>
+                                            <td colspan="2"><?php echo $listelect['m_user'] ?>/<?php echo $listelect['depart_sub_name'] ?></td>
+                                            <td><?php echo $listelect['m_issue'] ?></td>
+                                            <td>
+                                                <?php
+                                                    $urgency = $listelect['m_urgency'];
+                                                    $urgency_hight= '<div style="color:red; font-weight: bold;">Hight</div>';
+                                                    $urgency_normal = '<div class="" style="color:blue; font-weight: bold;">Normal</div>';
+                                                    $urgency_low = '<div class="" style="color:gray; font-weight: bold;">Low</div>';
+
+                                                    if ($urgency == 'Hight') {
+                                                        echo $urgency_hight;        
+                                                    } else if ($urgency == 'Normal') {
+                                                        echo $urgency_normal;       
+                                                    } else {
+                                                        echo $urgency_low;    
+                                                    }
+                                                ?>
+                                            </td>
+                                            <td style="color:green;"> <?php echo $listelect['m_status'] ?></td>
+                                            <td class="text-center"><a style="font-weight:bold; color:#000;" class="btn btn-sm btn-outline-warning px-3"><?php echo $listelect['m_rate'] ?>&nbsp;<i class="fas fa-star gold"></i></td>
+                                            
+                                            <td class="text-center">
+                                                <!--------------- Button Group Pannel---------------->
+                                                <div class="btn-group">
+                                                    <button type="button" class="p-1 badge btn bg-primary dropdown-toggle position-relative" data-bs-toggle="dropdown" aria-expanded="false">จัดการ</button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#" onclick="window.open(this.href='task-detail.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=600,width=700,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ดูเพิ่มเติม</a></li>
+                                                        <?php if($_SESSION['level'] == 'User' ) {?>
+                                                            <?php if($listelect['user_check'] == 'NO') {?>
+                                                                <li><a class="dropdown-item" href="#" onclick="window.open(this.href='user_check.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=400,width=600,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ยืนยันตรวจสอบ</a></li>
+                                                            <?php } ?>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </div>
+                                               
+                                                <!--------------- Button Group Pannel---------------->
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>  
+                            </div>               
+                        </div>
+                    </div>   
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                                           
                     </div>
                     
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-6">
@@ -1094,11 +1225,6 @@ try {
                                                             </li>
                                                         <?php } ?>
 
-                                                        <?php if($_SESSION['level'] == 'User' ) {?>
-                                                            <?php if($listelect['user_check'] == 'NO') {?>
-                                                                <li><a class="dropdown-item" href="#" onclick="window.open(this.href='user_check.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=400,width=600,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ยืนยันตรวจสอบ</a></li>
-                                                            <?php } ?>
-                                                        <?php } ?>
                                                     </ul>
                                                 </div>
                                                 <!--------------- Button Group Pannel---------------->
@@ -1161,6 +1287,14 @@ try {
                                                                     <span class="input-group-text">ชม.</span>
                                                                 </div>
                                                                 <?php } ?>
+
+                                                                <div class="input-group mt-2">
+                                                                    <span class="input-group-text" name="m_status" >สถานะงาน</span>
+                                                                    <select class="form-select" name="m_status">
+                                                                        <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                                                        <option value="ซ่อมเสร็จรอตรวจรับ">ซ่อมเสร็จรอตรวจรับ</option>
+                                                                    </select>
+                                                                </div> 
 
                                                             </div>
                                                         </div>
@@ -1312,11 +1446,6 @@ try {
                                                             </li>
                                                         <?php } ?>
 
-                                                        <?php if($_SESSION['level'] == 'User' ) {?>
-                                                            <?php if($listelect['user_check'] == 'NO') {?>
-                                                                <li><a class="dropdown-item" href="#" onclick="window.open(this.href='user_check.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=400,width=600,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ยืนยันตรวจสอบ</a></li>
-                                                            <?php } ?>
-                                                        <?php } ?>
                                                     </ul>
                                                 </div>
                                                 <!--------------- Button Group Pannel---------------->
@@ -1379,6 +1508,14 @@ try {
                                                                     <span class="input-group-text">ชม.</span>
                                                                 </div>
                                                                 <?php } ?>
+
+                                                                <div class="input-group mt-2">
+                                                                    <span class="input-group-text" name="m_status" >สถานะงาน</span>
+                                                                    <select class="form-select" name="m_status">
+                                                                        <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                                                        <option value="ซ่อมเสร็จรอตรวจรับ">ซ่อมเสร็จรอตรวจรับ</option>
+                                                                    </select>
+                                                                </div>
 
                                                             </div>
                                                         </div>
@@ -1528,11 +1665,6 @@ try {
                                                             </li>
                                                         <?php } ?>
 
-                                                        <?php if($_SESSION['level'] == 'User' ) {?>
-                                                            <?php if($listelect['user_check'] == 'NO') {?>
-                                                                <li><a class="dropdown-item" href="#" onclick="window.open(this.href='user_check.php?id=<?php echo $listelect['m_id'] ?>','popUpWindow','height=400,width=600,left=200,top=200,,scrollbars=yes,menubar=no'); return false;">ยืนยันตรวจสอบ</a></li>
-                                                            <?php } ?>
-                                                        <?php } ?>
                                                     </ul>
                                                 </div>
                                                 <!--------------- Button Group Pannel---------------->
@@ -1596,6 +1728,14 @@ try {
                                                                 </div>
                                                                 <?php } ?>
 
+                                                                <div class="input-group mt-2">
+                                                                    <span class="input-group-text" name="m_status" >สถานะงาน</span>
+                                                                    <select class="form-select" name="m_status">
+                                                                        <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                                                        <option value="ซ่อมเสร็จรอตรวจรับ">ซ่อมเสร็จรอตรวจรับ</option>
+                                                                    </select>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                         <br style="clear:both;"/>
@@ -1644,7 +1784,7 @@ try {
                                         INNER JOIN depart ON maintenance.m_depart_id = depart.depart_id 
                                         INNER JOIN categories ON maintenance.m_c_id = categories.c_id
                                         RIGHT JOIN subtasks ON maintenance.m_st_id = subtasks.st_id
-                                        WHERE (check_status = 'ตรวจสอบแล้ว' AND user_check = 'YES') AND (m_status ='กำลังดำเนินการ' OR m_status = 'รอสินค้า-อะไหล่')
+                                        WHERE (check_status = 'ตรวจสอบแล้ว' AND user_check = 'YES') AND (m_status ='ตรวจรับงานแล้ว' OR m_status = 'รอสินค้า-อะไหล่')
                                         ");
                                         $listelectric->execute();
                                         $electric = $listelectric->fetchAll();

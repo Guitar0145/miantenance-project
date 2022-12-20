@@ -142,12 +142,13 @@
 
         }
 
-        public function updateUsercheck ($user_check, $date_check, $user_comment, $name_check, $m_id) { 
+        public function updateUsercheck ($user_check, $date_check, $user_comment, $name_check, $m_status, $m_id) { 
             $result = mysqli_query($this->dbcon, "UPDATE maintenance SET 
                 user_check = '$user_check',
                 date_check = '$date_check',
                 user_comment = '$user_comment',
-                name_check = '$name_check'
+                name_check = '$name_check',
+                m_status = '$m_status'
                 WHERE m_id = '$m_id'
             "); 
             return $result;
