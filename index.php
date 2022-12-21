@@ -152,7 +152,7 @@ try {
                 <div class="row">
                     <div class="col-12">
 
-                        <div class="card-header bg-secondary text-white" style="font-weight: bold;">
+                        <div class="card-header bg-danger text-white" style="font-weight: bold;">
                             รายการแจ้งทั่วไปที่รอตรวจสอบ
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -326,7 +326,7 @@ try {
                     <?php foreach ($switchTime as $switchTime ) { $status_switchTime = $switchTime['status']; } ?>
 <!----------------------------------------------------------------------- รายการคิวแจ้งซ่อมโปรเจค ------------------------------------------------------------------------------------->
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
-                        <div class="card-header bg-secondary text-white">
+                        <div class="card-header bg-warning" style="font-weight: bold;">
                             รายการตรวจสอบแล้ว รอดำเนินการ
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -529,7 +529,7 @@ try {
                     </div>  
 <!----------------------------------------------------------------------------------------------- สิ้นสุดตรวจสอบแล้ว รอ-ช่าง---------------------------------------------------------------------------> 
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-6">
-                        <div class="card-header bg-secondary text-white" style="font-weight: bold;">
+                        <div class="card-header bg-primary text-white" style="font-weight: bold;">
                             รายการแจ้งซ่อมทั่วไป
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -753,7 +753,7 @@ try {
                         </div>
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                         <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
-                        <div class="card-header bg-secondary text-white">
+                        <div class="card-header bg-primary text-white">
                             คิวรายการซ่อม ช่างนอก
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -955,7 +955,7 @@ try {
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->     
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
-                        <div class="card-header  text-white" style="background-color:#00BCC8;">
+                        <div class="card-header  text-white" style="background-color:#00BCC8;font-weight: bold;">
                             คิวรายที่ซ่อมแล้ว รอตรวจรับงาน
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -1075,7 +1075,7 @@ try {
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-6">
                     <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
-                        <div class="card-header bg-secondary text-white" style="font-weight: bold;">
+                        <div class="card-header bg-primary text-white" style="font-weight: bold;">
                             คิวแจ้งซ่อมอะไหล่-แม่พิมพ์
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -1318,7 +1318,7 @@ try {
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
-                        <div class="card-header bg-secondary text-white">
+                        <div class="card-header bg-primary text-white">
                             คิวแจ้งซ่อมเครื่องจักร
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
@@ -1537,7 +1537,7 @@ try {
                     </div>   
 <!----------------------------------------------------------------------- รายการคิวแจ้งซ่อมโปรเจค ------------------------------------------------------------------------------------->
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
-                        <div class="card-header bg-secondary text-white">
+                        <div class="card-header bg-primary text-white">
                             คิวรายการ Project
                         </div>
                         <div class="card-body shadow mb-2 bg-white">
