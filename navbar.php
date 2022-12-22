@@ -113,6 +113,7 @@
               <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editUser<?php echo $_SESSION['u_id'] ?>" >แก้ไขข้อมูล</a>
               <?php if($_SESSION['u_name'] == 'Admin' ) { ?>
               <div class="dropdown-divider"></div>
+                  <a href="backup-database/backup-database.php" class="dropdown-item">BackUp-Database</a>
                   <a href="switch-page.php" class="dropdown-item">Switch Functions</a>
               <?php } ?>
               <div class="dropdown-divider"></div>
